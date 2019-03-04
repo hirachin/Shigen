@@ -1,14 +1,16 @@
 ﻿
 # include <Siv3D.hpp>
+# include "Resource.h"
+
 
 void Main()
 {
-	const Font font(30);
+	Resource resource(L"Data/Resource.ini");
+	resource.saveIni(L"Data/Resource.ini");
 
 	while (System::Update())
 	{
-		font(L"ようこそ、Siv3D の世界へ！").draw();
-
-		Circle(Mouse::Pos(), 50).draw({ 255, 0, 0, 127 });
+		ClearPrint();
+		Println(resource);
 	}
 }
